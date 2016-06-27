@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
 
   root 'static_pages#home', as: 'home'
-
+  get 'log_in' => 'sessions#new'
+  post 'log_in' => 'sessions#create'
+  delete 'log_out' => 'sessions#destroy'
   get 'about' => 'static_pages#about'
   get 'users' => 'users#index'
   get 'sign_up' => 'users#new'
   post 'users' => 'users#create'
   get 'users/:id' => 'users#show', as: 'user'
   delete 'users/:id' => 'users#destroy'
-  patch 'edit/:id' => 'users#edit'
+  get 'users/:id/edit' => 'users#edit', as: 'edit_user'
+  patch 'users/:id' => 'users#update'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,5 +1,3 @@
+<%= flash[:danger] %>
 <h1>Edit User</h1>
-<%= form_for(@user) do |f| %>
-  <%= f.label :name %>
-  <%= f.email_field :email %>
-<% end %>
+<%= render 'shared/form' %>
