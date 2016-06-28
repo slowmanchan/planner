@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :microposts, dependent: :destroy
   attr_accessor :remember_token
   validates :name, :email, :password, :password_confirmation, presence: true
   has_secure_password

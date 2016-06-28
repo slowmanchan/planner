@@ -1,0 +1,6 @@
+<li>
+   <%= micropost.comment %>,
+   <%= link_to micropost.user.name, micropost.user %>
+   Posted: <%= time_ago_in_words(micropost.created_at) %> ago
+
+</li>

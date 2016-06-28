@@ -3,14 +3,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if user = User.find_by(email: params[:session][:email])
+    user = User.find_by(email: params[:session][:email])
+    if user && user.authenticate(params[:session][:password])
       flash[:success] = "successful log in"
       log_in user
       params[:session][:remember_token] == '1' ? remember(user) : forget(user)
       remember user
       redirect_to user
     else
-      flash.now[:danger] = "User does not exist"
+      flash.now[:danger] = "Invalid Password/Email combo"
       render 'new'
     end
   end

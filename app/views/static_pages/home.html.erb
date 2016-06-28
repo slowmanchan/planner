@@ -1,5 +1,12 @@
 
-<h1>Planner</h1>
-<h2>Welcome to Planner</h2>
-<%= link_to 'Sign up', sign_up_path %>
-<%= link_to 'Log in', log_in_path %>
+
+
+<% if logged_in? %>
+  <%= render 'shared/user_info' %>
+  <%= render 'shared/micropost_form' %>
+<% else %>
+  <h1>Planner</h1>
+  <h2>Welcome to Planner</h2>
+  <%= link_to 'Sign up', sign_up_path %>
+  
+<% end %>

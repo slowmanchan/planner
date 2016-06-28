@@ -1,4 +1,10 @@
-<p><%= flash[:success] %><p>
-<h1><%= @user.name %></h1>
-Email: <%= @user.email %>
-<%= link_to "Edit profile", edit_user_path %>
+
+<%= render 'shared/user_info' %>
+
+<h2>Comments(<%= @user.microposts.count %>)</h2>
+<% if @user.microposts.any? %>
+  <ol>
+    <%= render @microposts %>
+  </ol>
+  <%= will_paginate @microposts %>
+<% end %>
