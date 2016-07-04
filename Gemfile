@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'letter_opener', :group => :development
 gem 'faker'
 gem 'will_paginate'
 gem 'bcrypt'

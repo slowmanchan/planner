@@ -31,6 +31,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserMailer.welcome_email(@user).deliver_later
       log_in @user
       flash[:success] = "Successfully signed up for new account"
       redirect_to @user
